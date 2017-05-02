@@ -12,7 +12,7 @@ class ThymeleafController {
 
     @RequestMapping("thy")
     fun helloThy(map: ModelMap): String{
-        map.addAttribute("hello","hello thymeleaf111!")
+        map.addAttribute("hello","hello thymeleaf!")
 
         return "thy"
     }
