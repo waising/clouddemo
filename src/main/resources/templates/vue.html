@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script >
+
+        var ax = axios.create({
+            baseURL: 'https:/*127.0.0.1:8080/',
+            timeout: 1000,
+            headers: {'X-Custom-Header': 'foobar'}
+        });
+        var d = {message: 'Hello Vue.js!'};
+        function xx() {
+            new Vue({
+                el: '#app',
+                data: d
+            });
+            ax.get("http://127.0.0.1:8080/hi")
+                    .then(function(response){
+                        d.message = response.data;
+                        console.log(response);
+                        console.log(response.data);
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+        }
+    </script>
+</head>
+<body onload="xx()">
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+</body>
+</html>

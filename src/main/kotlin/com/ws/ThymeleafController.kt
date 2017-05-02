@@ -16,4 +16,11 @@ class ThymeleafController {
 
         return "thy"
     }
+
+    @RequestMapping("vue")
+    fun helloVue(map: ModelMap): String{
+        map.addAttribute("hello","hello vue!")
+
+        return "vue"
+    }
 }

@@ -13,4 +13,9 @@ class HelloController {
     fun hello(): String {
         return "hello world!"
     }
+
+    @RequestMapping("/hi")
+    fun hi(): String {
+        return "hi!"
+    }
 }
